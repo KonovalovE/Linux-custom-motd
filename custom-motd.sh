@@ -28,10 +28,10 @@ USER_INFO="1"               # show some user infomration
 #### color schemes
 
 ## MOTD theme scheme
-F1=${C_GREEN}
-F2=${C_GREEN}
-F3=${C_LGREEN}
-F4=${C_RED}
+F1="\033[0;32m"
+F2="\033[0;32m"
+F3="\033[1;32m"
+F4="\033[0;31m"
 
 ## don't start as root
 if [ $(whoami) != root ]; then
