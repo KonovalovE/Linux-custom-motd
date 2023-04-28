@@ -22,8 +22,8 @@ ENVFILE="/root/.CNTEC/environment.cfg"
 ## enable system related information about your system
 SYSTEM_INFO="1"             # show system information
 ENVIRONMENT_INFO="1"        # show environement information
-STORAGE_INFO="0"            # show storage information
-USER_INFO="0"               # show some user infomration
+STORAGE_INFO="1"            # show storage information
+USER_INFO="1"               # show some user infomration
 
 #### color schemes
 
@@ -34,10 +34,10 @@ F3=${C_LGREEN}
 F4=${C_RED}
 
 ## don't start as root
-#if [ $(whoami) != root ]; then
-#    cat /etc/motd
-#    exit 0
-#fi
+if [ $(whoami) != root ]; then
+    cat /etc/motd
+    exit 0
+fi
 
 ## create .environment file if not exist
 function createenv {
