@@ -9,12 +9,12 @@
 #	E-MAIL: kev@modbon.ru
 #	WWW: https://modbon.ru
 #
-#	VERSION: 1.0
+#	VERSION: 1.1
 #	CREATED: 28/04/2023
 # =======================================================
 
 ## version
-VERSION="MOTD v1.0"
+VERSION="MOTD v1.1"
 
 ## configuration and logfile
 ENVFILE="/root/.CNTEC/environment.cfg"
@@ -51,6 +51,8 @@ function createenv {
     	read SYSENV
         echo -n "Service Level Agreement, like SLA1|SLA2|SLA3: [${3}] "
         read SYSSLA
+        echo -n "Brief description of the system: [${4}] "
+        read SYSNOTE
         rm -rf $ENVFILE
         mkdir -p $(dirname $ENVFILE)
         touch $ENVFILE
@@ -147,7 +149,7 @@ function show_environment_info () {
             createenv ;
         fi
         source $ENVFILE
-        if [ -z "${SYSFUNCTION}" ] || [ -z "${SYSENV}" ] || [ -z "${SYSSLA}" ]; then
+        if [ -z "${SYSFUNCTION}" ] || [ -z "${SYSENV}" ] || [ -z "${SYSSLA}" ] || [ -z "${SYSNOTE}" ]; then
             rm $ENVFILE
             createenv ;	
         fi
@@ -158,6 +160,7 @@ ${F2}============[ ${F1}Environment Data${F2} ]=================================
 ${F1}        Function ${F2}= ${F3}$SYSFUNCTION
 ${F1}     Environment ${F2}= ${F3}$SYSENV
 ${F1}   Service Level ${F2}= ${F3}$SYSSLA${F1}"
+${F1}            NOTE ${F2}= ${F3}$SYSNOTE${F1}"
 
     fi
 }
