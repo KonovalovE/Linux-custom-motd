@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =======================================================
-#	FILE: motd.sh
+#	FILE: custom-motd.sh
 #
 #	DESCRIPTION: Custom MOTD script 
 #
